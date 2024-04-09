@@ -62,19 +62,26 @@ app.post("/api/workplaces", (req, res) => {
 
     res.json({
         message: "workplace added",
-        message2: req.body.companyname,
-        message3: req.body.jobtitle,
-        message4: req.body.location,
-        message5: req.body.description
+        companyname: req.body.companyname,
+        jobtitle: req.body.jobtitle,
+        location: req.body.location,
+        description: req.body.description
     });
 });
 
-app.put("/api/worplaces/:id", (req, res) => {
-    res.json({ message: "user updated: " + req.params.id });
-});
+// app.put("/api/workplaces/:id", (req, res) => {
+//     const queryStmt = "UPDATE work WHERE ID = ?"
+//     res.json({ message: "user updated: " + req.params.id });
+// });
 
-app.delete("/api/worplaces/:id", (req, res) => {
-    res.json({ message: "user deleted: " + req.params.id });
+app.delete("/api/workplaces/:id", (req, res) => {
+    let id = req.params.id;
+    connection.query("delete from work where ID = ?", id, (err) => {
+        if (err) {
+            console.log(err.message);
+        }
+    })
+    res.json({ message: "workplace with ID " + req.params.id + " deleted"});
 });
 
 app.listen(port, () => {
