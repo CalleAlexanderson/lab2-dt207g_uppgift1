@@ -24,7 +24,7 @@ connection.query(("DROP TABLE IF EXISTS work"), (err, result) => {
 
 // skapar en tabbell för jobbplatserna 
 connection.query(`CREATE TABLE work (
-        ID Integer not null,
+        ID Integer not null AUTO_INCREMENT,
         companyname varchar(255) not null,
         jobtitle varchar(255),
         location varchar(255),
