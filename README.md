@@ -1,4 +1,4 @@
-# Exempel på README.md-fil för ett API
+# API som hanterar tidigare jobbposter
 Detta repo innehåller kod ett REST API byggt med Express och stöd för CORS. API:et hanterar de olika jobbposter jag haft sedan gymnasiet. 
 CRUD (Create, Read, Update, Delete) är implementerad men det finns ingen update funktion mot API:et.
 
